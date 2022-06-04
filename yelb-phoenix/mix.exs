@@ -20,8 +20,7 @@ defmodule Yelb.MixProject do
   def application do
     [
       mod: {Yelb.Application, []},
-      application: [:peerage],
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :peerage]
     ]
   end
 
