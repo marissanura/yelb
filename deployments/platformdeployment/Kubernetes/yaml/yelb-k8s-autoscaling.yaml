@@ -89,19 +89,23 @@ spec:
               cpu: "0.8"
               memory: 1Gi
 ---
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: yelb-ui
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: yelb-ui
-  minReplicas: 1
-  maxReplicas: 3
-  targetCPUUtilizationPercentage: 80
----
+# Problem with having 2 or more ngnix in the front is that
+# it makes the connection will not be consistent, for now at least
+# it will be removed
+
+# apiVersion: autoscaling/v1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: yelb-ui
+# spec:
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: yelb-ui
+#   minReplicas: 1
+#   maxReplicas: 3
+#   targetCPUUtilizationPercentage: 80
+# ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
